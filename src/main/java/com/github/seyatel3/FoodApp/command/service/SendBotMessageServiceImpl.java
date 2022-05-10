@@ -13,11 +13,11 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class SendBotMessageServiceImpl implements SendBotMessageService {
 
-    private final KristaFoodBot KristaBot;
+    private final KristaFoodBot kristaFoodBot;
 
     @Autowired
-    public SendBotMessageServiceImpl(KristaFoodBot KristaBot) {
-        this.KristaBot = KristaBot;
+    public SendBotMessageServiceImpl(KristaFoodBot kristaFoodBot) {
+        this.kristaFoodBot = kristaFoodBot;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class SendBotMessageServiceImpl implements SendBotMessageService {
         sendMessage.setText(message);
 
         try {
-            KristaBot.execute(sendMessage);
+            kristaFoodBot.execute(sendMessage);
         } catch (TelegramApiException e) {
             //todo add logging to the project.
             e.printStackTrace();
