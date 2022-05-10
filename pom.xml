@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.seyatel3</groupId>
 	<artifactId>FoodApp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<name>FoodApp</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
