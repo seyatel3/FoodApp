@@ -10,7 +10,6 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
  * Implementation of {@link SendBotMessageService} interface.
  */
 @Service
-
 public class SendBotMessageServiceImpl implements SendBotMessageService {
 
     private final KristaFoodBot kristaFoodBot;

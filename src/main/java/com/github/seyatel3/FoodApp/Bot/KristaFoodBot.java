@@ -3,11 +3,11 @@ package com.github.seyatel3.FoodApp.Bot;
 import com.github.seyatel3.FoodApp.command.CommandContainer;
 import com.github.seyatel3.FoodApp.command.service.SendBotMessageServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import static com.github.seyatel3.FoodApp.command.CommandName.NO;
 
@@ -21,7 +21,6 @@ public class KristaFoodBot extends TelegramLongPollingBot {
 
     @Value("${bot.username}")
     private String username;
-
     @Value("${bot.token}")
     private String token;
 
@@ -45,11 +44,12 @@ public class KristaFoodBot extends TelegramLongPollingBot {
         }
     }
 
+
     @Override
-    public String getBotUsername() { return "test_krista_food_bot"; }
+    public String getBotUsername() { return username; }
 
     @Override
     public String getBotToken() {
-        return "5386295105:AAFS5j_2z8Rw0NOnO9ExgSiDrzTX4bUl33w";
+        return token;
     }
 }
