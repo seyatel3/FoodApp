@@ -1,10 +1,29 @@
-version: '3.1'
-
+version: '3'
 services:
-  FoodApp:
+  foodapp-bot:
+    depends_on:
+      - foodapp-db
     build:
       context: .
     environment:
-      - BOT_NAME=${BOT_NAME}
-      - BOT_TOKEN=${BOT_TOKEN}
+      BOT_NAME: ${BOT_NAME}
+      BOT_TOKEN: ${BOT_TOKEN}
+      BOT_DB_USERNAME: ${BOT_DB_USERNAME}
+      BOT_DB_PASSWORD: ${BOT_DB_PASSWORD}
     restart: always
+  foodapp-db:
+    image: mysql:8.0
+    hostname: mysql-db
+    container_name: foodapp_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'kristafoodbot_db'
+      MYSQL_USER: ${BOT_DB_USERNAME}
+      MYSQL_PASSWORD: ${BOT_DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: 'password_for_root_user'
+    ports:
+      - '3307:3306'
+    volumes:
+      - foodapp-volume:/var/lib/mysql
+  volumes:
+    foodapp-volume:
