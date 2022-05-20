@@ -3,6 +3,7 @@ package com.github.seyatel3.FoodApp.command;
 import com.github.seyatel3.FoodApp.Bot.KristaFoodBot;
 import com.github.seyatel3.FoodApp.command.service.SendBotMessageService;
 import com.github.seyatel3.FoodApp.command.service.SendBotMessageServiceImpl;
+import com.github.seyatel3.FoodApp.command.service.TelegramUserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -14,6 +15,7 @@ abstract class AbstractCommandTest {
 
     protected KristaFoodBot kristaFoodBot = Mockito.mock(KristaFoodBot.class);
     protected SendBotMessageService sendBotMessageService = new SendBotMessageServiceImpl(kristaFoodBot);
+    protected TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
 
     abstract String getCommandName();
     abstract String getCommandMessage();

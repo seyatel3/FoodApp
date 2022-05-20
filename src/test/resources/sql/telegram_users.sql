@@ -1,0 +1,8 @@
+INSERT INTO tg_user VALUES ("123456789", user1, 1, 1);
+INSERT INTO tg_user VALUES ("123456788", user2, 1, 1);
+INSERT INTO tg_user VALUES ("123456787", user3, 1, 0);
+INSERT INTO tg_user VALUES ("123456786", user4, 1, 0);
+INSERT INTO tg_user VALUES ("123456785", user5, 1, 0);
+INSERT INTO tg_user VALUES ("123456784", user6, 0, 0);
+INSERT INTO tg_user VALUES ("123456782", user7, 0, 0);
+INSERT INTO tg_user VALUES ("123456781", user8, 0, 0);
