@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 abstract class AbstractCommandTest {
@@ -16,6 +17,7 @@ abstract class AbstractCommandTest {
     protected KristaFoodBot kristaFoodBot = Mockito.mock(KristaFoodBot.class);
     protected SendBotMessageService sendBotMessageService = new SendBotMessageServiceImpl(kristaFoodBot);
     protected TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
+    private SendMessage sendMessage;
 
     abstract String getCommandName();
     abstract String getCommandMessage();
@@ -25,11 +27,16 @@ abstract class AbstractCommandTest {
     public void ShouldProperlyExecuteCommands() throws TelegramApiException {
 
         Long chatId = 1234567891234L;
+        String userName = "mika";
 
         Update update = new Update();
         Message message = Mockito.mock(Message.class);
+        User user = Mockito.mock(User.class);
         Mockito.when(message.getChatId()).thenReturn(chatId);
         Mockito.when(message.getText()).thenReturn(getCommandName());
+        Mockito.when(user.getUserName()).thenReturn(userName);
+        Mockito.when(message.getFrom()).thenReturn(user);
+
         update.setMessage(message);
 
         SendMessage sendMessage = new SendMessage();

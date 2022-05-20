@@ -30,7 +30,6 @@ class TelegramUserRepositoryIT {
     public void shouldProperlyFindAllActiveUsers() {
         //when
         List<TelegramUser> users = telegramUserRepository.findAllByActiveTrue();
-        System.out.println(users.toArray().toString());
 
         //then
         Assertions.assertEquals(5, users.size());
@@ -54,3 +53,5 @@ class TelegramUserRepositoryIT {
 
 
 }
+
+
