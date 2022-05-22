@@ -11,24 +11,22 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up MySQL
-      uses: mirromutth/mysql-action@v1.1
+    services:
+      # Label used to access the service container
+      mysql:
+        # Docker Hub image
+        image: mysql:8.0.24
+          mysql database: 'kristafoodbot_db'
+          mysql root password: 'password_for_root_user'
+          mysql user: 'dev_kristafoodbot_user'
+          mysql password: 'dev_kristafoodbot_password'
+    - name: Set up JDK 1.11
+      uses: actions/setup-java@v1
       with:
-        mysql version: '8.0'
-        mysql database: 'kristafoodbot_db'
-        mysql root password: 'password_for_root_user'
-        mysql user: 'dev_kristafoodbot_user'
-        mysql password: 'dev_kristafoodbot_password'
-    - name: Set up JDK 11
-      uses: actions/setup-java@v3
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-        cache: maven
+        java-version: 1.11
     - name: Build with Maven
       run: mvn -B package --file pom.xml
