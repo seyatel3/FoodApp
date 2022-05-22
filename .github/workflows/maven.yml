@@ -26,6 +26,8 @@ jobs:
           mysql root password: 'password_for_root_user'
           mysql user: 'dev_kristafoodbot_user'
           mysql password: 'dev_kristafoodbot_password'
+      - name: Status MySQL 8
+        run: sudo systemctl status mysql.service
       - name: Start MySQL 8 at 2
         run: sudo service mysql start
       - name: Set up JDK 11
