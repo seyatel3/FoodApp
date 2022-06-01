@@ -22,7 +22,7 @@ jobs:
           mysql database: 'kristafoodbot_db'
           mysql root password: 'password_for_root_user'
           mysql user: 'dev_kristafoodbot_user'
-          mysql password: 'dev_kristafoodbot_password'
+          mysql password: 'kristafoodbot_password'
           host port: '3307'
           container port: '3306'
       - name: MySQL start
