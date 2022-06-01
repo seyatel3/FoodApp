@@ -25,6 +25,10 @@ jobs:
           mysql password: 'dev_kristafoodbot_password'
           host port: '3307'
           container port: '3307'
+
+      - name: MySQL stop
+        run: sudo systemctl stop mysql.service
+
       - name: MySQL start
         run: sudo systemctl start mysql.service
 
