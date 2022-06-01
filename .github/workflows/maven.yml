@@ -21,10 +21,10 @@ jobs:
           mysql version: '8.0'
           mysql database: 'kristafoodbot_db'
           mysql root password: 'password_for_root_user'
-          mysql user: dev_kristafoodbot_user
-          mysql password: dev_kristafoodbot_password
+          mysql user: 'dev_kristafoodbot_user'
+          mysql password: 'dev_kristafoodbot_password'
           host port: '3307'
-          container port: '3306'
+          container port: '3307'
       - name: MySQL start
         run: sudo systemctl start mysql.service
 
