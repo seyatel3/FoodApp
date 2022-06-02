@@ -27,6 +27,9 @@ jobs:
           container port: '3307'
 
       - name: MySQL stop
+        run: sudo mysql GRANT ALL PRIVILEGES ON kristafoodbot_db* TO 'dev_kristafoodbot_user'@'localhost';
+
+      - name: MySQL stop
         run: sudo systemctl stop mysql.service
 
       - name: MySQL start
