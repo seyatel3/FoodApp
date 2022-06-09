@@ -1,0 +1,18 @@
+version: '3'
+services:
+  foodapp-db:
+    image: mysql:8.0
+    hostname: mysql-db
+    container_name: foodapp_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'kristafoodbot_db'
+      MYSQL_USER: 'dev_kristafoodbot_user'
+      MYSQL_PASSWORD: 'dev_kristafoodbot_password'
+      MYSQL_ROOT_PASSWORD: 'password_for_root_user'
+    ports:
+      - '3307:3306'
+    volumes:
+      - foodapp-volume:/var/lib/mysql
+volumes:
+  foodapp-volume:

@@ -2,9 +2,9 @@ package com.github.seyatel3.FoodApp.Bot;
 
 import com.github.seyatel3.FoodApp.command.CommandContainer;
 import com.github.seyatel3.FoodApp.command.service.SendBotMessageServiceImpl;
+import com.github.seyatel3.FoodApp.command.service.TelegramUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -25,9 +25,9 @@ public class KristaFoodBot extends TelegramLongPollingBot {
     private String token;
 
     private final CommandContainer commandContainer;
-
-    public KristaFoodBot() {
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+    @Autowired
+    public KristaFoodBot(TelegramUserService telegramUserService) {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this),telegramUserService);
     }
 
     @Override
