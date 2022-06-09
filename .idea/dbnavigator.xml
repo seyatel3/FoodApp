@@ -29,7 +29,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="fc8d1266-3387-41ec-ab4b-cbb94fc3ddb2">
-      <console name="Connection" type="STANDARD" schema="kristafoodbot_db" session="Main" />
+      <console name="Connection" type="STANDARD" schema="kristafoodbot_db" session="Main"><![CDATA[select * from kristafoodbot_db.tg_user]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
