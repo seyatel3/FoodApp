@@ -33,14 +33,6 @@ public interface TelegramUserService {
     List<TelegramUser> retrieveAllAdminUsers();
 
     /**
-     * Find {@link TelegramUser} by userId.
-     *
-     * @param userId provided User ID
-     * @return {@link TelegramUser} with provided user ID or null otherwise.
-     */
-    Optional<TelegramUser> findByUserId(String userId);
-
-    /**
      * Find {@link TelegramUser} by userName
      *
      * @param userName provided User Name

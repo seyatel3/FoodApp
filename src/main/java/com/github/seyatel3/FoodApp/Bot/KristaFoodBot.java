@@ -1,6 +1,7 @@
 package com.github.seyatel3.FoodApp.Bot;
 
 import com.github.seyatel3.FoodApp.command.CommandContainer;
+import com.github.seyatel3.FoodApp.command.service.MenuService;
 import com.github.seyatel3.FoodApp.command.service.SendBotMessageServiceImpl;
 import com.github.seyatel3.FoodApp.command.service.TelegramUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ public class KristaFoodBot extends TelegramLongPollingBot {
 
     private final CommandContainer commandContainer;
     @Autowired
-    public KristaFoodBot(TelegramUserService telegramUserService) {
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this),telegramUserService);
+    public KristaFoodBot(TelegramUserService telegramUserService, MenuService menuService) {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService, menuService);
     }
 
     @Override

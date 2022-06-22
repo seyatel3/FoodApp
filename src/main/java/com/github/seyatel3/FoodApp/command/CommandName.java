@@ -9,6 +9,10 @@ public enum CommandName {
     STOP("/stop"),
     HELP("/help"),
     STAT("/stat"),
+    MENU("/menu"),
+    MENU_ADD_ITEM("/menu_add_item"),
+
+    MENU_UPDATE("/menu_update"),
     NO("nocommand");
     private final String commandName;
 
