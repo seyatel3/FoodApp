@@ -11,7 +11,7 @@ public class StatCommandTest extends AbstractCommandTest {
 
     @Override
     String getCommandMessage() {
-        return String.format(STAT_MESSAGE, 0);
+        return String.format(STAT_MESSAGE, 0,0);
     }
 
     @Override

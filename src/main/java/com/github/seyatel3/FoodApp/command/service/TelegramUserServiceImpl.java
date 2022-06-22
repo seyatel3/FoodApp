@@ -34,11 +34,6 @@ public class TelegramUserServiceImpl implements TelegramUserService {
     }
 
     @Override
-    public Optional<TelegramUser> findByUserId(String userId) {
-        return telegramUserRepository.findById(userId);
-    }
-
-    @Override
     public Optional<TelegramUser> findByUserName(String userName) {
         return telegramUserRepository.findById(userName);
     }
