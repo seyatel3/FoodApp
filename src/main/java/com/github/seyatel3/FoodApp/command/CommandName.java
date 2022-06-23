@@ -11,7 +11,9 @@ public enum CommandName {
     STAT("/stat"),
     MENU("/menu"),
     MENU_ADD_ITEM("/menu_add_item"),
-
+    ORDER("/order"),
+    CANCEL_ORDER("/cancel_order"),
+    LETS_GO("/lets_go"),
     MENU_UPDATE("/menu_update"),
     NO("nocommand");
     private final String commandName;

@@ -1,8 +1,7 @@
 package com.github.seyatel3.FoodApp.command;
 
-import com.github.seyatel3.FoodApp.command.service.MenuService;
-import com.github.seyatel3.FoodApp.command.service.SendBotMessageService;
-import com.github.seyatel3.FoodApp.command.service.TelegramUserService;
+import com.github.seyatel3.FoodApp.command.service.*;
+import com.github.seyatel3.FoodApp.repository.OrderXmenuRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -23,7 +22,9 @@ class CommandContainerTest {
         SendBotMessageService sendBotMessageService = Mockito.mock(SendBotMessageService.class);
         TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
         MenuService menuService = Mockito.mock(MenuService.class);
-        commandContainer = new CommandContainer(sendBotMessageService, telegramUserService, menuService);
+        OrderService orderService = Mockito.mock(OrderService.class);
+        OrderXmenuService orderXmenuService = Mockito.mock(OrderXmenuService.class);
+        commandContainer = new CommandContainer(sendBotMessageService, telegramUserService, menuService, orderService, orderXmenuService);
     }
 
 

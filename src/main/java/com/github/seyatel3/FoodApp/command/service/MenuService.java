@@ -2,6 +2,7 @@ package com.github.seyatel3.FoodApp.command.service;
 
 import com.github.seyatel3.FoodApp.repository.entity.Menu;
 import com.github.seyatel3.FoodApp.repository.entity.TelegramUser;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -43,10 +44,28 @@ public interface MenuService {
     Optional<Menu> findById(Integer id_menu);
 
     /**
-     * Return all names  {@link Menu} .
-     *
-     * @return {@link Menu}
+     * Updates  {@link Menu} .
      */
     void menuUpdate(Integer id_menu, String name, BigDecimal price);
+
+    /**
+     * Gets price from {@link Menu} by id_menu.
+     *
+     * @param id_menu provided id_menu
+     */
+    BigDecimal getPrice(Integer id_menu);
+
+    /**
+     * Gets name from {@link Menu} by id_menu.
+     *
+     * @param idMenu provided id_menu
+     */
+    String getName(Integer idMenu);
+
+
+
+
+
+
 
 }

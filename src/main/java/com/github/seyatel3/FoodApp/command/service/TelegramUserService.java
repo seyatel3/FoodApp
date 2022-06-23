@@ -1,6 +1,7 @@
 package com.github.seyatel3.FoodApp.command.service;
 
 import com.github.seyatel3.FoodApp.repository.entity.TelegramUser;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,4 +48,20 @@ public interface TelegramUserService {
      * @return {@link TelegramUser} with provided chat ID or null otherwise.
      */
     Optional<TelegramUser> findByChatId(String chatId);
+
+    /**
+     * Find {@link TelegramUser} by chatId.
+     *
+     * @param chatId provided Chat ID
+     * @return {@link TelegramUser} with provided chat ID or null otherwise.
+     */
+    TelegramUser findOneByChatId(String chatId);
+
+    /**
+     * Find name of {@link TelegramUser} by chatId.
+     *
+     * @param chatId provided Chat ID
+     * @return String name with provided chat ID or null otherwise.
+     */
+    String getName(String chatId);
 }
