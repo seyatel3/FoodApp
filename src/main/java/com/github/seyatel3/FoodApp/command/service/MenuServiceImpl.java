@@ -40,6 +40,10 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public void menuUpdate(Integer id_menu, String name, BigDecimal price){menuRepository.menuUpdate(id_menu, name, price); };
+    public void menuUpdate(Integer id_menu, String name, BigDecimal price) {menuRepository.menuUpdate(id_menu, name, price); }
 
+    @Override
+    public BigDecimal getPrice(Integer id_menu) {return menuRepository.getPrice(id_menu);}
+    @Override
+    public String getName(Integer idMenu) {return menuRepository.getName(idMenu);}
 }

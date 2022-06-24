@@ -4,6 +4,7 @@ import com.github.seyatel3.FoodApp.Bot.KristaFoodBot;
 import com.github.seyatel3.FoodApp.command.service.SendBotMessageService;
 import com.github.seyatel3.FoodApp.command.service.SendBotMessageServiceImpl;
 import com.github.seyatel3.FoodApp.command.service.TelegramUserService;
+import com.github.seyatel3.FoodApp.repository.entity.TelegramUser;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -32,9 +33,18 @@ abstract class AbstractCommandTest {
         Update update = new Update();
         Message message = Mockito.mock(Message.class);
         User user = Mockito.mock(User.class);
+        TelegramUser tgUser = Mockito.mock(TelegramUser.class);
+        tgUser.setAdmin(false);
+        tgUser.setChatId((chatId).toString());
+        tgUser.setActive(true);
+        tgUser.setUserName(userName);
+
+
         Mockito.when(message.getChatId()).thenReturn(chatId);
         Mockito.when(message.getText()).thenReturn(getCommandName());
         Mockito.when(user.getUserName()).thenReturn(userName);
+
+        Mockito.when(telegramUserService.findOneByChatId((chatId).toString())).thenReturn(tgUser);
         Mockito.when(message.getFrom()).thenReturn(user);
 
         update.setMessage(message);

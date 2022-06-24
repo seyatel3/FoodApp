@@ -30,7 +30,7 @@ public class MenuCommand implements Command{
 
         List<Menu> menu = menuService.retrieveAll();
         String menuItems = menu.stream()
-                .map(menuIt -> String.format("%s %s %s \n", menuIt.getId_menu(), menuIt.getName(), menuIt.getPrice()))
+                .map(menuIt -> String.format("%s %s %s \n", menuIt.getIdMenu(), menuIt.getName(), menuIt.getPrice()))
                 .collect(Collectors.joining());
 
         sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(), String.format(MENU_MESSAGE, menuItems));
